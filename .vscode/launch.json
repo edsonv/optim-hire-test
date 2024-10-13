@@ -1,0 +1,32 @@
+{
+  "configurations": [
+    {
+      "name": "Launch Local Node File",
+      "type": "node",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "program": "${file}"
+    },
+    {
+      "name": "Launch index.html",
+      "type": "firefox",
+      "request": "attach"
+    },
+    {
+      "name": "Debug Typescript",
+      "type": "node",
+      "request": "launch",
+      "console": "internalConsole",
+      "preLaunchTask": "tsc: build - tsconfig.json",
+      "program": "${file}",
+      "outFiles": ["${workspaceFolder}/out/**/*.js"]
+    },
+    {
+      "name": "Docker Node.js Launch",
+      "type": "docker",
+      "request": "launch",
+      "preLaunchTask": "docker-run: debug",
+      "platform": "node"
+    }
+  ]
+}
